@@ -1,0 +1,72 @@
+﻿
+
+@{
+    var list = ViewBag.Tin as List<Tintuc>;
+}
+<section id="aa-blog-archive">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-blog-archive-area aa-blog-archive-2">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="aa-blog-content">
+                                <div class="row">
+                                    @if (list != null)
+                                    {
+                                        @foreach(var item in list)
+                                        {
+                                            <div class="col-md-4 col-sm-4">
+                                                <article class="aa-latest-blog-single">
+                                                    <figure class="aa-blog-img">
+                                                        <a href="#"><img alt="img" src="@Url.Content("~/img/Tin/" + item.Img)"></a>
+                                                        <figcaption class="aa-blog-img-caption">
+                                                            <span href="#"><i class="fa fa-eye"></i>@item.Tim</span>
+                                                            <a href="#"><i class="fa fa-thumbs-o-up"></i>@item.Share</a>
+                                                            <a href="#"><i class="fa fa-comment-o"></i>@item.Cmt</a>
+                                                            <span href="#"><i class="fa fa-clock-o"></i>@item.Ngay.Value.ToString("dd/MM/yyyy")</span>
+                                                        </figcaption>
+                                                    </figure>
+                                                    <div class="aa-blog-info">
+                                                        <h3 class="aa-blog-title"><a href="#">@item.Ten</a></h3>
+                                                        <p>@item.Tieude.Substring(0,70)...</p>
+                                                        <a class="aa-read-mor-btn" href="@item.Noidung">Xem thêm <span class="fa fa-long-arrow-right"></span></a>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        }
+                                    }
+
+                                </div>
+                            </div>
+                            <!-- Blog Pagination -->
+                        </div>
+                        <div class="col-md-3">
+                            <aside class="aa-blog-sidebar">
+                                <div class="aa-sidebar-widget">
+                                    <h3>Tin tức liên quan</h3>
+                                    <div class="aa-recently-views">
+                                        <ul>
+                                            @foreach(var item in list)
+                                            {
+                                                <li>
+                                                    <a class="aa-cartbox-img" href="@item.Noidung"><img src="@Url.Content("~/img/Tin/" + item.Img)" alt="img"></a>
+                                                    <div class="aa-cartbox-info">
+                                                        <h4><a href="@item.Noidung">@item.Ten</a></h4>
+                                                        <p>@item.Ngay.Value.ToString("dd/MM/yyyy")</p>
+                                                    </div>
+                                                </li>
+                                            }
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

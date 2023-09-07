@@ -1,0 +1,115 @@
+﻿@model Project59.Models.Post
+
+@{
+    ViewData["Title"] = "BlogsDeltail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="aa-blog-archive">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-blog-archive-area">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <!-- Blog details -->
+                            <div class="aa-blog-content aa-blog-details">
+                                <article class="aa-blog-content-single">
+                                    <h2><a>@Model.Ten</a></h2>
+                                    <div class="aa-article-bottom">
+                                        <div class="aa-post-author">
+                                            Người đăng : <a href="#">@Model.Nguoidang</a>
+                                        </div>
+                                        <div class="aa-post-date">
+                                            @Model.Ngay.Value.ToString("dd/MM/yyyy")
+                                        </div>
+                                    </div>
+                                    <figure class="aa-blog-img">
+                                        <a href="#"><img src="@Url.Content("~/img/Blogs/" + Model.Img)" alt=""></a>
+                                    </figure>
+
+                                    
+                                    @Html.Raw(@Model.Noidungchitiet)
+                                    
+                                    <div class="blog-single-bottom">
+                                        <div class="row">
+                                            <div class="col-md-8 col-sm-6 col-xs-12">
+                                                <div class="blog-single-tag">
+                                                    <span>Tags:</span>
+                                                    <a href="#">@Model.Loai</a>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                                <div class="blog-single-social">
+                                                    <a href="https://www.facebook.com/NhatIT2307"><i class="fa fa-facebook"></i></a>
+                                                    <a href="https://www.facebook.com/NhatIT2307"><i class="fa fa-twitter"></i></a>
+                                                    <a href="https://www.facebook.com/NhatIT2307"><i class="fa fa-linkedin"></i></a>
+                                                    <a href="https://www.facebook.com/NhatIT2307"><i class="fa fa-google-plus"></i></a>
+                                                    <a href="https://www.facebook.com/NhatIT2307"><i class="fa fa-pinterest"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </article>
+
+                            </div>
+                        </div>
+
+                        <!-- blog sidebar -->
+                        <div class="col-md-3">
+                            <aside class="aa-blog-sidebar">
+                                <div class="aa-sidebar-widget">
+                                    <h3>Bài viết liên quan</h3>
+                                    <div class="aa-recently-views">
+                                        <ul>
+                                            @foreach (var item in ViewBag.lienquan)
+                                            {
+                                                <li>
+                                                    <figure>
+                                                        <div class="card">
+                                                            <div class="header">
+                                                                <div class="image">
+                                                                    <img src="@Url.Content("~/img/Blogs/" + item.Img)" alt="" />
+                                                                    <span class="tag">@item.Loai</span>
+                                                                </div>
+                                                                <div class="date">
+                                                                    <span>@item.Ngay.ToString("dd/MM/yyyy")</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="info">
+                                                                <a rel="noopener noreferrer" href="@Url.Action("BlogsDeltail","Home",new{id = item.PostId})" class="block">
+                                                                    <span class="title">@item.Ten </span>
+                                                                </a>
+                                                                <p class="description">
+                                                                    @if (item.Noidung.Length > 73)
+                                                                    {
+                                                                        @item.Noidung.Substring(0, 73)
+
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @item.Noidung
+                                                                    }
+                                                                </p>
+
+
+                                                            </div>
+                                                        </div>
+
+                                                    </figure>
+
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

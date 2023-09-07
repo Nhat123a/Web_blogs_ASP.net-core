@@ -1,0 +1,76 @@
+﻿@{
+    var list = ViewBag.Blog;
+}
+
+<section id="aa-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="aa-product-area">
+                        <div class="aa-product-inner">
+                            <!-- start prduct navigation -->
+                            <ul class="nav nav-tabs aa-products-tab">
+                                <li class="active"><a data-toggle="tab">Blogs</a></li>
+
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <!-- Start men product category -->
+                                <div class="tab-pane fade in active">
+                                    <ul class="aa-product-catg">
+                                        @if (list != null)
+                                        {
+                                            @foreach (var item in list)
+                                            {
+                                                <li>
+                                                    <figure>
+                                                        <div class="card">
+                                                            <div class="header">
+                                                                <div class="image">
+                                                                    <img src="@Url.Content("~/img/Blogs/" + item.Img)" alt="" />
+                                                                    <span class="tag">@item.Loai</span>
+                                                                </div>
+                                                                <div class="date">
+                                                                    <span>@item.Ngay.ToString("dd/MM/yyyy")</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="info">
+                                                                <a rel="noopener noreferrer" href="@Url.Action("BlogsDeltail","Home",new{id = item.PostId})" class="block">
+                                                                    <span class="title">@item.Ten </span>
+                                                                </a>
+                                                                <p class="description">
+                                                                    @if (item.Noidung.Length > 73)
+                                                                    {
+                                                                        @item.Noidung.Substring(0, 73)
+
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @item.Noidung
+                                                                    }
+                                                                </p>
+
+
+                                                            </div>
+                                                        </div>
+
+                                                    </figure>
+
+                                                </li>
+                                            }
+                                        }
+
+                                    </ul>
+                                    <a class="aa-browse-btn" href="#">Xem thêm<span class="fa fa-long-arrow-right"></span></a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Products section -->
