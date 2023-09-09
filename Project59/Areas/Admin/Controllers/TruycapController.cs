@@ -15,6 +15,7 @@ namespace Project59.Areas.Admin.Controllers
         Project59Context _context = new Project59Context();
 
         // GET: Admin/Truycap
+        [Route("quan-li-truy-cap.html", Name = "truycap")]
         public async Task<IActionResult> Index()
         {
               return _context.Truycaps != null ? 

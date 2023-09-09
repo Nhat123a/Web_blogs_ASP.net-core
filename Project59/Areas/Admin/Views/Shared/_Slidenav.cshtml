@@ -7,34 +7,36 @@
                     <span class="icon-holder">
                         <i class="anticon anticon-dashboard"></i>
                     </span>
-                    <span class="title">Trang chủ</span>
+                    <span class="title">Dashboard</span>
                     <span class="arrow">
                         <i class="arrow-icon"></i>
                     </span>
                 </a>
                 <ul class="dropdown-menu">
                     <li class="active">
-                        <a href="index.html">Default</a>
+                        <a href="https://localhost:44301/Admin">Trang chủ</a>
                     </li>
 
                 </ul>
             </li>
+            <!--Quản lý post-->
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
                         <i class="anticon anticon-appstore"></i>
                     </span>
-                    <span class="title">Quản lý Blogs(Post)</span>
+                    <span class="title">Quản lý Post</span>
                     <span class="arrow">
                         <i class="arrow-icon"></i>
                     </span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="app-chat.html">Chat</a>
+                        <a asp-area="Admin" asp-action="Index" asp-controller="Post">Đăng Post</a>
                     </li>
                 </ul>
             </li>
+            <!--Quản lý tài khoản-->
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
@@ -47,10 +49,11 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="avatar.html">Avatar</a>
+                        <a asp-area="Admin" asp-action="Index" asp-controller="Taikhoan">Tài Khoản</a>
                     </li>
                 </ul>
             </li>
+            <!--Quản lý tin tức-->
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
@@ -63,11 +66,12 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="accordion.html">Accordion</a>
+                        <a asp-area="Admin" asp-controller="Tintuc" asp-action="Index">Tin tức</a>
                     </li>
 
                 </ul>
             </li>
+            <!--Quản Lí hệ thống-->
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle" href="javascript:void(0);">
                     <span class="icon-holder">
@@ -80,7 +84,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a asp-area="Admin" asp-controller="Truycap" asp-action="Index">Quản lý quyền truy cập</a>
+                        <a asp-area="Admin" asp-controller="Truycap" asp-action="Index">Quyền truy cập</a>
                     </li>
                     
                 </ul>

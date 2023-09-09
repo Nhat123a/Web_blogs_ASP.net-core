@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Project59.Models.Post>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-success m-r-5">Thêm mới</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               ID
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th>
+                Tên Post
+            </th>
+            <th>
+                Ngày đăng
+            </th>
+            <th>
+                Loại 
+            </th>
+            <th>
+                Người đăng
+            </th>
+            <th>
+                Ảnh
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trangthai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ten)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Loai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nguoidang)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Img)
+                </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.PostId" class="btn btn-secondary m-r-5">Sửa</a>
+                    <a asp-action="Details" asp-route-id="@item.PostId" class="btn btn-primary m-r-5">Xem</a>
+                    <a asp-action="Delete" asp-route-id="@item.PostId" class="btn btn-danger m-r-5">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

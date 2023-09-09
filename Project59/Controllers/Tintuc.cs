@@ -6,6 +6,7 @@ namespace Project59.Controllers
     public class Tintuc : Controller
     {
         Project59Context db = new Project59Context();
+        [Route("tin-tuc.html", Name = "Tintuc")]
         public async Task<IActionResult> Index()
 
         {

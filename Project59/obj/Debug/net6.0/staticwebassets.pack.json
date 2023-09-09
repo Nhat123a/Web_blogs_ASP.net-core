@@ -3241,6 +3241,10 @@
       "PackagePath": "staticwebassets\\img\\Blogs\\facebook.jpg"
     },
     {
+      "Id": "C:\\Users\\ACE\\OneDrive\\Desktop\\Blogs_web\\Project59\\Project59\\wwwroot\\img\\Blogs\\hue.jpg",
+      "PackagePath": "staticwebassets\\img\\Blogs\\hue.jpg"
+    },
+    {
       "Id": "C:\\Users\\ACE\\OneDrive\\Desktop\\Blogs_web\\Project59\\Project59\\wwwroot\\img\\Blogs\\maketing.jpg",
       "PackagePath": "staticwebassets\\img\\Blogs\\maketing.jpg"
     },
@@ -3249,12 +3253,24 @@
       "PackagePath": "staticwebassets\\img\\Blogs\\thuvien.jpg"
     },
     {
+      "Id": "C:\\Users\\ACE\\OneDrive\\Desktop\\Blogs_web\\Project59\\Project59\\wwwroot\\img\\Blogs\\tiktok.jpg",
+      "PackagePath": "staticwebassets\\img\\Blogs\\tiktok.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ACE\\OneDrive\\Desktop\\Blogs_web\\Project59\\Project59\\wwwroot\\img\\Blogs\\tuoitre.jpg",
+      "PackagePath": "staticwebassets\\img\\Blogs\\tuoitre.jpg"
+    },
+    {
       "Id": "C:\\Users\\ACE\\OneDrive\\Desktop\\Blogs_web\\Project59\\Project59\\wwwroot\\img\\Tin\\03.jpg",
       "PackagePath": "staticwebassets\\img\\Tin\\03.jpg"
     },
     {
       "Id": "C:\\Users\\ACE\\OneDrive\\Desktop\\Blogs_web\\Project59\\Project59\\wwwroot\\img\\Tin\\04.jpg",
       "PackagePath": "staticwebassets\\img\\Tin\\04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ACE\\OneDrive\\Desktop\\Blogs_web\\Project59\\Project59\\wwwroot\\img\\Tin\\tinlanh.jpg",
+      "PackagePath": "staticwebassets\\img\\Tin\\tinlanh.jpg"
     },
     {
       "Id": "C:\\Users\\ACE\\OneDrive\\Desktop\\Blogs_web\\Project59\\Project59\\wwwroot\\img\\close-icon.png",

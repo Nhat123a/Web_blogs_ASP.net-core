@@ -27,5 +27,4 @@ public partial class Post
 
     public string? Noidungchitiet { get; set; }
 
-    public virtual Danhmuc? IdNavigation { get; set; }
 }

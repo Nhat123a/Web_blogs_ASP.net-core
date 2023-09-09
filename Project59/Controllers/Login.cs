@@ -7,6 +7,7 @@ namespace Project59.Controllers
     {
         Project59Context db = new Project59Context();
         [HttpGet]
+        [Route("dang-nhap.html", Name = "Dangnhap")]
         public IActionResult Index()
         {
             if(HttpContext.Session.GetString("taikhoan")==null)
@@ -15,8 +16,17 @@ namespace Project59.Controllers
             }
             else
             {
-                return RedirectToAction("Index","Home");
+                string role = HttpContext.Session.GetString("taikhoan");
+                if (role == "Admin") 
+                {
+                    return RedirectToAction("Index", "Home", new { Area = "Admin" });
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
+
         }
         [HttpPost]
         public IActionResult login(Taikhoan user)

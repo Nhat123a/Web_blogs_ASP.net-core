@@ -1,0 +1,74 @@
+﻿@model Project59.Models.Tintuc
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Sửa</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Ngay" class="control-label"> Ngày</label>
+                <input asp-for="Ngay" class="form-control" />
+                <span asp-validation-for="Ngay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ten" class="control-label">Tên</label>
+                <input asp-for="Ten" class="form-control" />
+                <span asp-validation-for="Ten" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tieude" class="control-label">Tiêu đề</label>
+                <input asp-for="Tieude" class="form-control" />
+                <span asp-validation-for="Tieude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Noidung" class="control-label">Nội dung</label>
+                <input asp-for="Noidung" class="form-control" />
+                <span asp-validation-for="Noidung" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trangthai" class="control-label">Trang thái</label>
+                <input asp-for="Trangthai" class="form-control" />
+                <span asp-validation-for="Trangthai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Img" class="control-label"></label>
+                <input asp-for="Img" class="form-control" />
+                <span asp-validation-for="Img" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tim" class="control-label">Tim</label>
+                <input asp-for="Tim" class="form-control" />
+                <span asp-validation-for="Tim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cmt" class="control-label">Coment</label>
+                <input asp-for="Cmt" class="form-control" />
+                <span asp-validation-for="Cmt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Share" class="control-label">Share</label>
+                <input asp-for="Share" class="form-control" />
+                <span asp-validation-for="Share" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loai" class="control-label">Loại</label>
+                <input asp-for="Loai" class="form-control" />
+                <span asp-validation-for="Loai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary m-r-5">Quay lại</a>
+</div>
+

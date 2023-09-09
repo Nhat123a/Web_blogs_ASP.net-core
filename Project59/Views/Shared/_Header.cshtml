@@ -1,5 +1,4 @@
 ﻿
-
 <!-- Start header section -->
 <!-- start header top  -->
 <div class="aa-header-top">
@@ -19,9 +18,9 @@
                     <!-- / header top left -->
                     <div class="aa-header-top-right">
                         <ul class="aa-head-top-nav-right">
-                            @if (User.Identity.IsAuthenticated)
+                            @if (ViewBag.Taikhoan !=null)
                             {
-                                <li><a href="#">Chào mừng, @User.Identity.Name</a></li>
+                                <li><a href="#">Xin chào, @ViewBag.Taikhoan</a></li>
                                 <li><a asp-controller="Login" asp-action="Logout">Đăng xuất</a></li>
                             }
                             else
@@ -53,12 +52,12 @@
                     <!-- / logo  -->
                     <!-- search box -->
                     <div class="aa-search-box">
-                        <form action="">
-                            <input type="text" name="" id="" placeholder="Nhập nội dung tìm kiếm ... ">
+                        <form action="@Url.Action("Index","Home")" method="get">
+                            <input type="text" name="searchTerm" id="searchTerm" placeholder="Nhập nội dung tìm kiếm ... ">
                             <button type="submit"><span class="fa fa-search"></span></button>
                         </form>
                     </div>
-                    <!-- / search box -->
+
                 </div>
             </div>
         </div>
@@ -83,9 +82,16 @@
                     <ul class="nav navbar-nav">
 
                         <li><a asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
-                        <li><a asp-area="Admin" asp-controller="Home" asp-action="Index"> Go Admin </a></li>
-                        <li><a href="/lien-he">Liên hệ</a></li>
-                        <li><a href="/tin-tuc ">Tin tức</a></li>
+                        
+                        <li><a asp-controller="Lienhe" asp-action="Index">Liên hệ</a></li>
+                        <li><a asp-controller="Tintuc" asp-action="Index">Tin tức</a></li>
+                        <li>
+                            <a href="#">Hệ thống <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a asp-controller="Hethong" asp-action="Index">404</a></li>
+
+                            </ul>
+                        </li>
 
                     </ul>
                 </div><!--/.nav-collapse -->
@@ -95,9 +101,7 @@
 </section>
 
 <!--Banner-->
-@{
-    var ListB = ViewBag.Banner;
-}
+
 <!--Banner-->
 <section id="aa-slider">
     <div class="aa-slider-area">
@@ -105,18 +109,21 @@
             <div class="seq-screen">
                 <ul class="seq-canvas">
                     <!-- single slide item -->
-                    @if (ListB != null)
-                    {
-                        foreach (var item in ListB)
-                        {
-                            <li>
-                                <div class="seq-model">
-                                    <img src="@Url.Content("~/img/Banner/" + item.Img)" alt="@item.Mota" />
-                                </div>
-                            </li>
-                        }
-                    }
-
+                    <li>
+                        <div class="seq-model">
+                            <img data-seq src="~/img/Banner/banner1.png" alt="" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="seq-model">
+                            <img data-seq src="~/img/Banner/banner2.png" alt="" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="seq-model">
+                            <img data-seq src="~/img/Banner/banner3.png" alt="" />
+                        </div>
+                    </li>
                 </ul>
             </div>
             <!-- slider navigation btn -->

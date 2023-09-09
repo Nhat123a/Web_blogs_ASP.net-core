@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Project59.Models;
 using Project59.Models.authentication;
+using System.Drawing.Printing;
+using X.PagedList;
 
 namespace Project59.Controllers
 {
@@ -10,14 +13,16 @@ namespace Project59.Controllers
         Project59Context db = new Project59Context();
 
         [Authentication]
-        public  IActionResult Index()
+        public  IActionResult Index( int? page )
         {
-
+            int pageSize = 12;
+            int pageNumber = page == null || page < 0 ? 1 : page.Value;
             var blog = db.Posts.Where(z => z.Trangthai == true).ToList();
-            ViewBag.Blog = blog;
-            
-            return View(); 
+
+            PagedList<Post> lst = new PagedList<Post>(blog,pageNumber,pageSize);
+            return View(lst); 
         }
+        [Route("chi-tiet-blog.html", Name = "Chitiet")]
         public IActionResult BlogsDeltail(int id)
         {
             var deltail = db.Posts.FirstOrDefault(p => p.PostId == id);
@@ -25,21 +30,6 @@ namespace Project59.Controllers
             ViewBag.lienquan = relatedPosts;
             
             return View(deltail);
-        }
-        public IActionResult Banner()
-        {
-            try
-            {
-                var banner = db.Banners.Where(y => y.Trangthai == true).ToList();
-                ViewBag.Banner = banner;
-                
-            }
-            catch (Exception ex)
-            {
-                ViewBag.ErrorMessage = "Có lỗi xảy ra trong quá trình truy vấn cơ sở dữ liệu: " + ex.Message;
-
-            }
-            return PartialView("_Header");
         }
     }
 }

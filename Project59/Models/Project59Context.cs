@@ -15,9 +15,6 @@ public partial class Project59Context : DbContext
     {
     }
 
-    public virtual DbSet<Banner> Banners { get; set; }
-
-    public virtual DbSet<Danhmuc> Danhmucs { get; set; }
 
     public virtual DbSet<Post> Posts { get; set; }
 
@@ -33,34 +30,6 @@ public partial class Project59Context : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Banner>(entity =>
-        {
-            entity.ToTable("Banner");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Img).HasColumnName("img");
-            entity.Property(e => e.Mota)
-                .HasMaxLength(50)
-                .HasColumnName("mota");
-            entity.Property(e => e.Trangthai).HasColumnName("trangthai");
-        });
-
-        modelBuilder.Entity<Danhmuc>(entity =>
-        {
-            entity.ToTable("Danhmuc");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Link)
-                .HasMaxLength(50)
-                .HasColumnName("link");
-            entity.Property(e => e.Mota)
-                .HasMaxLength(50)
-                .HasColumnName("mota");
-            entity.Property(e => e.Ten)
-                .HasMaxLength(50)
-                .HasColumnName("ten");
-            entity.Property(e => e.Trangthai).HasColumnName("trangthai");
-        });
 
         modelBuilder.Entity<Post>(entity =>
         {
@@ -90,9 +59,6 @@ public partial class Project59Context : DbContext
                 .HasColumnName("ten");
             entity.Property(e => e.Trangthai).HasColumnName("trangthai");
 
-            entity.HasOne(d => d.IdNavigation).WithMany(p => p.Posts)
-                .HasForeignKey(d => d.Id)
-                .HasConstraintName("FK_post_Danhmuc");
         });
 
         modelBuilder.Entity<Taikhoan>(entity =>
